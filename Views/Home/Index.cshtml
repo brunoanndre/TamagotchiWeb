@@ -1,0 +1,15 @@
+﻿@model TamagotchiPokemonWeb.Models.Player
+@{
+
+}
+<body>
+    <img class="imgLogo" src="~/images/PokemonLogo.jpg"/>
+    <div class="d-flex flex-column justify-content-center">
+        <form asp-action="MenuPrincipal" asp-controller="Game" class="d-flex flex-column form-group">
+            <input type="text" asp-for="Name" placeholder="Insira seu nome aqui"/>
+            <div class="align-self-center mt-1">
+                <button class="startBtn">JOGAR</button>
+            </div>
+        </form>
+    </div>
+</body>

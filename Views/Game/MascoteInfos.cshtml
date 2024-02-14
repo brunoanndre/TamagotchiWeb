@@ -1,0 +1,36 @@
+﻿@model TamagotchiPokemonWeb.Models.TamagotchiDetailsResult
+@{
+    ViewData["Title"] = "Informações do Mascote";
+}
+<body class="bodyMenuP">
+    <div class="d-flex flex-column align-content-center p-3  border border-white  border-1">
+        <h5 class="text-uppercase text-center">@Model.Name</h5>
+        <div class="align-self-center"><img src="@Model.Sprites.Other.Showdown.Front_default" alt="Boneco" /></div>
+        <h6 class="text-center">@ViewData["Title"]</h6>
+        <div class="d-flex">
+            <div class="me-5">
+                <label>Características</label>
+                <ul>
+                    <li>Peso: @Model.Weight</li>
+                    <li>Altura: @Model.Height </li>
+                </ul>
+            </div>
+            <div class="ms-4">
+                <label>Habilidades</label>
+                <ul>
+                    @foreach(var ability in Model.Abilities)
+                    {
+                        <li class="text-capitalize">@ability.Ability.Name</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <a  asp-action="AdotarMascote" asp-controller="Game" class="btnMenuGame text-decoration-none text-black"> Voltar</a>
+            <form asp-action="AdotarMascote" asp-route-name="@Model.Name" method="post">
+                <button class="btnMenuGame">Adotar</button>
+            </form>
+            
+        </div>
+    </div>
+</body>

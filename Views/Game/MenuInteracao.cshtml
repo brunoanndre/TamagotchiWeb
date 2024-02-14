@@ -1,0 +1,38 @@
+﻿@model TamagotchiPokemonWeb.Models.TamagotchiDTO
+@{
+    ViewData["Title"] = "Informações do Mascote";
+}
+<body class="bodyMenuP">
+    <div class="d-flex flex-column align-content-center p-3  border border-white  border-1">
+        <h5 class="text-capitalize text-center">@Model.Name</h5>
+        <div class="align-self-center"><img src="@Model.Sprites.Other.Showdown.Front_default" alt="Boneco" /></div>
+        <h6 class="text-center">@ViewData["Title"]</h6>
+        <div class="d-flex flex-column">
+            <div class="me-5">
+                <label class="text-center">Características</label>
+                <ul>
+                    <li>Fome: @Model.Hanger</li>
+                    <li>Saúde: @Model.Health</li>
+                    <li>Humor: @Model.Humor</li>
+                </ul>
+            </div>
+            <div class="mt-2">
+                <form method="post" asp-route-id="@Model.Id" asp-action="AlimentarTamagotchi">
+                    <button type="submit" class="btn btnMenuGame">Feed @Model.Name</button>
+                </form>
+                <form method="post" asp-route-id="@Model.Id" asp-action="RestTamagotchi">
+                    <button type="submit" class="btnMenuGame">Rest</button>
+                </form>
+                <form method="post" asp-route-id="@Model.Id" asp-action="PlayWithTamagotchi">
+                    <button type="submit"  class="btnMenuGame">Play with @Model.Name</button>
+                </form>
+                <form method="post" asp-route-id="@Model.Id" asp-action="PetTamagotchi">
+                    <button type="submit" class="btnMenuGame">Pet @Model.Name</button>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <a asp-action="InteragirMascote" asp-controller="Game" class="btnMenuGame text-decoration-none text-black"> Voltar</a>
+        </div>
+    </div>
+</body>

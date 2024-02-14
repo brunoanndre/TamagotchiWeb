@@ -1,0 +1,20 @@
+﻿@model TamagotchiPokemonWeb.Models.Player
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+}
+
+<body class="bodyMenuP">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+        <div class="d-flex flex-column">
+            <h3 class="welcMsg">Bem vindo, @ViewData["Player"]!</h3>
+            <h5 style="color:yellow;" class="align-self-center">Menu Principal</h5>
+            <a asp-action="AdotarMascote" class="btn btnMenuGame">Adotar um mascote</a>
+            <a asp-controller="Game" asp-action="InteragirMascote" class="btn btnMenuGame">Interagir com seu mascote</a>
+            <a asp-action="MascotesAdotados" class="btn btnMenuGame">Ver mascotes adotados</a>
+            <a asp-controller="Home" asp-action="Index" class="btn btnMenuGame">Sair do jogo</a>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TamagotchiPokemonWeb.Models.TamagotchiDTO>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<body class="bodyMenuP d-flex justify-content-center">
+    <div class=" d-flex flex-column">
+        <table class="table table-striped  table-hover table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Nome</th>
+                    <th class="text-center">Características</th>
+                    <th class="text-center">Habilidades</th>
+                    <th class="text-center">Aparência</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.ToList().Count == 0)
+                {
+                    <tr><td colspan="5"><h4 class="text-center mt-2 mb-3">Nenhum mascote adotado.</h4></td></tr>
+                }
+                else
+                    @foreach (var item in Model)
+                    {
+                        <tr>                            
+                            <td class="text-capitalize text-center align-middle">@item.Name</td>
+                            <td class="text-center align-middle">
+                                <ul class="list-unstyled">
+                                    <li>Altura: @item.Height</li>
+                                    <li>Peso:   @item.Weight</li>
+                                </ul>
+                            </td>
+                            <td class="text-center align-middle">
+                                @foreach (var ability in item.Abilities)
+                                {
+                                    <ul class="list-unstyled">
+                                        <li class="text-capitalize">@ability.Ability.Name </li>
+                                    </ul>
+                                }
+                            </td>
+                            <td class="text-center align-middle"><img src="@item.Sprites.Other.Showdown.Front_default" alt="foto" /></td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            <a asp-action="MenuPrincipal" asp-controller="Game" class="btnMenuGame text-decoration-none text-black"> Voltar</a>
+        </div>
+        
+    </div>
+
+</body>
