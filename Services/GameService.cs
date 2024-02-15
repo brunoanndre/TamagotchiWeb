@@ -7,18 +7,18 @@ namespace TamagotchiPokemonWeb.Services
     {
         private  PokemonApiService _pokemonApiService = new();
         public List<TamagotchiDetailsResult> _tamagotchiDetailsResult= [];
-        private List<TamagotchiResult> tamagotchiSpecies {get; set;}
+        private List<TamagotchiResult>? TamagotchiSpecies {get; set;}
         public List<TamagotchiDTO> AdoptedsTamagotchis { get;} = [];
 
         public  List<TamagotchiDetailsResult> FindAllSpecies()
         {
-            if (tamagotchiSpecies == null)
+            if (TamagotchiSpecies == null)
             {
-                tamagotchiSpecies = _pokemonApiService.ObterEspeciesDisponiveis().Result;
+                TamagotchiSpecies = _pokemonApiService.ObterEspeciesDisponiveis().Result;
 
-                for (int i = 0; i < tamagotchiSpecies.Count; i++)
+                for (int i = 0; i < TamagotchiSpecies.Count; i++)
                 {
-                    var DetailsResult = FindSpecieDetail(tamagotchiSpecies[i].Name);
+                    var DetailsResult = FindSpecieDetail(TamagotchiSpecies[i].Name);
                     _tamagotchiDetailsResult.Add(DetailsResult);
                 }
             }
@@ -45,7 +45,7 @@ namespace TamagotchiPokemonWeb.Services
                 Sprites = tamagotchiToAdopt.Sprites,
                 Abilities = tamagotchiToAdopt.Abilities,
                 Humor = rand.Next(11),
-                Hanger = rand.Next(11),
+                Hunger = rand.Next(11),
                 Health = rand.Next(11)
             };
             AdoptedsTamagotchis.Add(tamagotchi);

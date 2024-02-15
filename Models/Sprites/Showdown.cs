@@ -2,6 +2,6 @@
 {
     public class Showdown
     {
-        public string Front_default { get; set; }
+        public required string Front_default { get; set; }
     }
 }

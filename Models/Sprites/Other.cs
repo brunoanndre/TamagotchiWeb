@@ -2,6 +2,6 @@
 {
     public class Other
     {
-        public Showdown Showdown { get; set; }
+        public required Showdown Showdown { get; set; }
     }
 }

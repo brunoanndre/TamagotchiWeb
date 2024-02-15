@@ -5,7 +5,7 @@ using TamagotchiPokemonWeb.Models;
 namespace Tamagotchi.Service
 {
     public class PokemonApiService
-    {
+    {   
         
         public async Task<List<TamagotchiResult>> ObterEspeciesDisponiveis()
         {

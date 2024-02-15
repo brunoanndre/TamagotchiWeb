@@ -74,7 +74,7 @@ namespace TamagotchiPokemonWeb.Services
         public IActionResult RestTamagotchi(int id)
         {
             TamagotchiDTO tamagotchi = _gameService.FindById(id);
-            _gameService.PetTamagotchi(tamagotchi);
+            _gameService.RestTamagotchi(tamagotchi);
             return RedirectToAction("MenuInteracao", tamagotchi);
         }
 
